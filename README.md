@@ -3,7 +3,20 @@ A .net C# wrapper around the Starwars API (http://swapi.co/api/)
 
 The library exposes Async methods to retrieve the various objects defined by the SWAPI API.
 
-To retrieve a single object:
+To start using import the namespaces
+
+      using StarWarsAPI;
+      using StarWarsAPI.Model;
+
+To create an instance of the client 
+
+       var api = new StarWarsAPIClient();
+
+To get a single people object:
+
+       var people = api.GetPeopleAsync("1").Result;
+
+The following methods are available to get the objects exposed by the API.
 
       public async Task<People> GetPeopleAsync(string id)
       public async Task<Planet> GetPlanetAsync(string id)
