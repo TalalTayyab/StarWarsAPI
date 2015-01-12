@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWarsAPI.Model
 {
-    /// <summary>
-    /// A vehicle.
-    /// </summary>
+    
     public class Starship : StarWarsBase
     {
         public string cost_in_credits { get; set; }
