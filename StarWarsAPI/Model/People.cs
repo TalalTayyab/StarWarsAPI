@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace StarWarsAPI.Model
 {
 
-    public class People
+    public class People : StarWarsBase
     {
         public string gender { get; set; }
         public IEnumerable<string> starships { get; set; }
@@ -21,9 +21,8 @@ namespace StarWarsAPI.Model
         public string skin_color { get; set; }
         public IEnumerable<string> films { get; set; }
         public string homeworld { get; set; }
-        public string url { get; set; }
         public string birth_year { get; set; }
-
+       
       
     }
 }

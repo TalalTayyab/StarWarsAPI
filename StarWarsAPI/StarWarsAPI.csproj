@@ -60,6 +60,7 @@
     <Compile Include="Model\Planet.cs" />
     <Compile Include="Model\Specie.cs" />
     <Compile Include="Model\Starship.cs" />
+    <Compile Include="Model\StarWarsBase.cs" />
     <Compile Include="Model\StarWarsEntityList.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="StarWarsAPI.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

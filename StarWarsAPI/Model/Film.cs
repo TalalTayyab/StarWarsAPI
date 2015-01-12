@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 namespace StarWarsAPI.Model
 {
 
-    public class Film
+    public class Film : StarWarsBase
     {
         public string producer { get; set; }
         public int episode_id { get; set; }
         public IEnumerable<string> starships { get; set; }
         public IEnumerable<string> species { get; set; }
         public string opening_crawl { get; set; }
-        public string url { get; set; }
         public IEnumerable<string> vehicles { get; set; }
         public IEnumerable<string> planets { get; set; }
         public string title { get; set; }

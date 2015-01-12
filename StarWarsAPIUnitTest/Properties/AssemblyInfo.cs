@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StarWarsAPI")]
-[assembly: AssemblyDescription("A .net C# wrapper around the Starwars API http://swapi.co/api/")]
+[assembly: AssemblyTitle("StarWarsAPIUnitTest")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Talal Tayyab")]
-[assembly: AssemblyProduct("StarWarsAPI")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("StarWarsAPIUnitTest")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4f08ba42-fda6-4d4f-bc78-ad3482a1085f")]
+[assembly: Guid("e799ed85-6e71-4834-b7d3-8b48888ad602")]
 
 // Version information for an assembly consists of the following four values:
 //
