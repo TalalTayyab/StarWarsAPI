@@ -129,37 +129,37 @@ namespace StarWarsAPI
 
         #region GetAll methods
 
-        public async Task<StarWarsEntityList<People>> GetAllPeople(string page = "1")
+        public async Task<StarWarsEntityList<People>> GetAllPeopleAsync(string page = "1")
         {
             var url = string.Format("people?page={0}", page);
             return await GetAsync<StarWarsEntityList<People>>(url);
         }
 
-        public async Task<StarWarsEntityList<Planet>> GetAllPlanet(string page = "1")
+        public async Task<StarWarsEntityList<Planet>> GetAllPlanetAsync(string page = "1")
         {
             var url = string.Format("planets?page={0}", page);
             return await GetAsync<StarWarsEntityList<Planet>>(url);
         }
 
-        public async Task<StarWarsEntityList<Specie>> GetAllSpecie(string page = "1")
+        public async Task<StarWarsEntityList<Specie>> GetAllSpecieAsync(string page = "1")
         {
             var url = string.Format("species?page={0}", page);
             return await GetAsync<StarWarsEntityList<Specie>>(url);
         }
 
-        public async Task<StarWarsEntityList<Starship>> GetAllStarship(string page = "1")
+        public async Task<StarWarsEntityList<Starship>> GetAllStarshipAsync(string page = "1")
         {
             var url = string.Format("starships?page={0}", page);
             return await GetAsync<StarWarsEntityList<Starship>>(url);
         }
 
-        public async Task<StarWarsEntityList<Film>> GetAllFilm(string page = "1")
+        public async Task<StarWarsEntityList<Film>> GetAllFilmAsync(string page = "1")
         {
             var url = string.Format("films?page={0}", page);
             return await GetAsync<StarWarsEntityList<Film>>(url);
         }
 
-        public async Task<StarWarsEntityList<Vehicle>> GetAllVehicle(string page = "1")
+        public async Task<StarWarsEntityList<Vehicle>> GetAllVehicleAsync(string page = "1")
         {
             var url = string.Format("vehicles?page={0}", page);
             return await GetAsync<StarWarsEntityList<Vehicle>>(url);

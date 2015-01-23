@@ -14,7 +14,7 @@ namespace StarWarsAPIUnitTest
     {
         [TestMethod]
         [Timeout(TestTimeout.Infinite)]
-        public async Task Get()
+        public async Task GetVehicle()
         {
             //Arrange
             var api = new StarWarsAPIClient();
@@ -22,6 +22,15 @@ namespace StarWarsAPIUnitTest
             //Act
             var v = await api.GetVehicleAsync("14");
 
+            TestObject(v);
+
+
+
+        }
+
+
+        void TestObject(Vehicle v)
+        {
             //Assert
             Assert.AreEqual(v.name, "Snowspeeder");
             Assert.AreEqual(v.model, "t-47 airspeeder");
@@ -35,15 +44,15 @@ namespace StarWarsAPIUnitTest
             Assert.AreEqual(v.consumables, "none");
             Assert.AreEqual(v.vehicle_class, "airspeeder");
 
-          
+
 
             TestArrayItems<People>(v.pilots, new string[] {
-                        @"http://swapi.co/api/people/1/", 
-                        @"http://swapi.co/api/people/18/"
+                        "http://swapi.co/api/people/1/", 
+                        "http://swapi.co/api/people/18/"
                 }, v.GetPilotAsync);
 
             TestArrayItems<Film>(v.films, new string[] {
-                       @"http://swapi.co/api/films/2/"
+                       "http://swapi.co/api/films/2/"
                 }, v.GetFilmAsync);
 
 
@@ -52,7 +61,53 @@ namespace StarWarsAPIUnitTest
             Assert.AreEqual(v.created, "2014-12-15T12:22:12Z");
             Assert.IsNotNull(v.edited);
             Assert.AreEqual(v.url, "http://swapi.co/api/vehicles/14/");
-
         }
+
+
+        [TestMethod]
+        [Timeout(TestTimeout.Infinite)]
+        public async Task GetAllVehicles()
+        {
+            //Arrange
+            var api = new StarWarsAPIClient();
+
+            //Act
+            var obj = await api.GetAllVehicleAsync();
+
+            //Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(obj.count, 39);
+            Assert.AreEqual(obj.next, "http://swapi.co/api/vehicles/?page=2");
+            Assert.IsNull(obj.previous);
+            Assert.IsNotNull(obj.results);
+            Assert.AreEqual(obj.results.Count(), 10);
+
+            var vehicle = obj.results.Where(e => e.name == "Snowspeeder").First();
+            TestObject(vehicle);
+
+
+            //Act
+            //now we move next
+            obj = await obj.GetNextAsync();
+
+            //Assert
+            Assert.AreEqual(obj.next, "http://swapi.co/api/vehicles/?page=3");
+            Assert.AreEqual(obj.previous, "http://swapi.co/api/vehicles/?page=1");
+            Assert.IsNotNull(obj.results);
+            Assert.AreEqual(obj.results.Count(), 10);
+
+            //Act
+            //now we move back
+            obj = await obj.GetPrevAsync();
+
+            //Assert
+            Assert.AreEqual(obj.next, "http://swapi.co/api/vehicles/?page=2");
+            Assert.IsNull(obj.previous);
+            Assert.IsNotNull(obj.results);
+            Assert.AreEqual(obj.results.Count(), 10);
+           
+           
+        }
+
     }
 }

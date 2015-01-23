@@ -42,7 +42,7 @@ namespace StarWarsConsoleTestApp
 
             if (result == null)
             {
-                result = api.GetAllVehicle().Result;
+                result = api.GetAllVehicleAsync().Result;
             }
 
 
